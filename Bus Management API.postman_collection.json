@@ -1,0 +1,505 @@
+{
+	"info": {
+		"_postman_id": "c0a75e9b-f2a1-4a73-87d3-49098c654cfa",
+		"name": "Bus Management API",
+		"description": "مجموعه‌ی کامل APIهای پروژه مدیریت اتوبوس شامل:\n\n- Authentication (ورود / ثبت‌نام)\n    \n- Buses (مدیریت اتوبوس)\n    \n- Trips (مدیریت سفر)\n    \n- Bookings (رزرو)\n    \n- Wallets & Transactions (کیف پول و تراکنش‌ها)\n    \n- Reports (گزارش‌ها)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "48637017",
+		"_collection_link": "https://alikhanizeinab28-6598096.postman.co/workspace/Zeinab-Alikhani's-Workspace~bfa199f1-824a-4868-8bd9-e81f9ec75127/collection/48637017-c0a75e9b-f2a1-4a73-87d3-49098c654cfa?action=share&source=collection_link&creator=48637017"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"full_name\": \"Test User\",\r\n  \"phone_number\": \"09121111111\",\r\n  \"password\": \"1234\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"phone_number\": \"09121111111\",\r\n  \"password\": \"1234\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Buses",
+			"item": [
+				{
+					"name": "Create Bus",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"plate_number\": \"77A888\",\r\n  \"capacity\": 40\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/buses",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"buses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Buses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/buses",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"buses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Bus by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/buses/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"buses",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Bus",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/buses/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"buses",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Bus",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/buses/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"buses",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Trips",
+			"item": [
+				{
+					"name": "Create Trip",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/trips",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"trips"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Trips",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/trips/search?origin=Tehran&destination=Isfahan",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"trips",
+								"search"
+							],
+							"query": [
+								{
+									"key": "origin",
+									"value": "Tehran"
+								},
+								{
+									"key": "destination",
+									"value": "Isfahan"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Trip by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/trips/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"trips",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Trip",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/trips/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"trips",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Trip",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/trips/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"trips",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bookings",
+			"item": [
+				{
+					"name": "Create Booking",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/bookings",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"bookings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "My Bookings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/bookings/my",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"bookings",
+								"my"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel Booking",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/bookings/1/cancel",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"bookings",
+								"1",
+								"cancel"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Wallets",
+			"item": [
+				{
+					"name": "Get Wallet",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/wallets",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"wallets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deposit",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/wallets/deposit",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"wallets",
+								"deposit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Withdraw",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/wallets/withdraw",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"wallets",
+								"withdraw"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reports",
+			"item": [
+				{
+					"name": "Total Revenue",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/reports/total-revenue",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"reports",
+								"total-revenue"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Revenue by Route",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/reports/revenue-by-route",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"reports",
+								"revenue-by-route"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bookings This Month",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/reports/bookings-this-month",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"reports",
+								"bookings-this-month"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Top Driver",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/reports/top-driver",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"reports",
+								"top-driver"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
